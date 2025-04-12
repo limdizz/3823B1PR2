@@ -1,35 +1,34 @@
-﻿#include "node.h"
-#include "list.h"
-#include "polynom.h"
+﻿#include "polynom.h"
 #include <iostream>
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
     Polynom poly1, poly2;
+    size_t coeff, xdeg, ydeg, zdeg;
 
-    std::cout << "Введите количество членов первого полинома: ";
-    size_t n1;
-    std::cin >> n1;
-    for (size_t i = n1; i > 0; --i) { 
-        double coeff;
-        std::cout << "Введите коэффициент для x^" << (i - 1) << ": ";
-        std::cin >> coeff;
-        poly1.addTerm(coeff, i - 1);
-    }
+    std::cout << "Enter a coefficient of the first polynom: ";
+    std::cin >> coeff;
+    std::cout << "Enter an x degree (you can also enter 0): ";
+    std::cin >> xdeg;
+    std::cout << "Enter an y degree (you can also enter 0): ";
+    std::cin >> ydeg;
+    std::cout << "Enter an z degree (you can also enter 0): ";
+    std::cin >> zdeg;
+    poly1.addTerm(coeff, { xdeg, ydeg, zdeg });
     poly1.print();
     std::cout << std::endl;
 
-  
-    std::cout << "Введите количество членов второго полинома: ";
-    size_t n2;
-    std::cin >> n2;
-    for (size_t i = n2; i > 0; --i) { 
-        double coeff;
-        std::cout << "Введите коэффициент для x^" << (i - 1) << ": ";
-        std::cin >> coeff;
-        poly2.addTerm(coeff, i - 1);
-    }
+    std::cout << "Enter a coefficient of the second polynom: ";
+    std::cin >> coeff;
+    std::cout << "Enter an x degree (you can also enter 0): ";
+    std::cin >> xdeg;
+    std::cout << "Enter an y degree (you can also enter 0): ";
+    std::cin >> ydeg;
+    std::cout << "Enter an z degree (you can also enter 0): ";
+    std::cin >> zdeg;
+
+    poly2.addTerm(coeff, { xdeg, ydeg, zdeg });
     poly2.print();
     std::cout << std::endl;
 
@@ -37,14 +36,13 @@ int main()
     Polynom subResult = poly1 - poly2;
     Polynom multResult = poly1 * poly2;
 
-    std::cout << "Результат сложения полиномов: ";
+    std::cout << "Sum result: ";
     sumResult.print();
     std::cout << std::endl;
-    std::cout << "Результат вычитания полиномов: ";
+    std::cout << "Subtraction result: ";
     subResult.print();
     std::cout << std::endl;
-    std::cout << "Результат умножения полиномов: ";
+    std::cout << "Multiplication result: ";
     multResult.print();
     std::cout << std::endl;
-
 }
